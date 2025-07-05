@@ -92,8 +92,9 @@ def show_input_phase():
         st.markdown("<div class='number-display'>こたえは？</div>", unsafe_allow_html=True)
         
         # 入力表示
-        input_display = "　".join(str(x) if i < len(st.session_state.user_inputs) else "□" 
-                                for i, x in enumerate(st.session_state.sequence))
+        input_display = "　".join(str(st.session_state.user_inputs[i]) if i < len(st.session_state.user_inputs) else "□" 
+                                for i in range(len(st.session_state.sequence)))
+
         st.subheader(f"🔢 にゅうりょく: {input_display}")
 
         # 数字パッド
